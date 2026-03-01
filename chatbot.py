@@ -1,37 +1,46 @@
-# Part 1: Loading Dependencies and making connection
-
 from google import genai
-import os
 from dotenv import load_dotenv
 from google.genai import types
+import os
+
+load_dotenv() # loading api key into file
+
+client=genai.Client() # Makes a client with gemini, so gemini knows this is a client which i will provide service
 
 
-# types: the instruction form we send to gemini like what is system instruction, what is temperature and what is response format.
-
-load_dotenv()
-client=genai.Client()
-
-
-# Part 2: Making Chat session
+# This makes a chat which can have multiple messages. Also client makes it remember which person it is chatting to. Here connection made and gemini knows how to behave
 
 chat=client.chats.create(
     model='gemini-2.5-flash',
-    config=types.GenerateContentConfig
-    (
-        system_instruction="""
-        So you are a person who is strict, doesnot joke a lot and is not emotional, says what is correct and doesnot give any false hopes.
-        If user types in roman urdu, you type in roman urdu, if in english you type back in english. Your Name is MindWired. You are fluent In Artificial Intelligence.
-        """
+    config=types.GenerateContentConfig(
+        system_instruction='You will reply me with one word only. So we use very less tokens'
     )
-) 
- 
-#  Part 3: Making loop that makes chatbot alive
+)
 
-print('MindWired. Your own Chatbot')
+# Making Chatbot
+
+print('-'*45)
+print('Basic Level Chatbot')
+print('-'*45)
+
 while True:
-        user_input=input('You: ')
-        if user_input.lower()=='quit':
-            break
-        response=chat.send_message(user_input)
-        print(response.text)
-       
+    user_input=input('You: ').strip() # takes user input using input function
+
+    if not user_input: # So if nothing written, it doesnot do anything.
+        continue
+    
+    # Quit option Chatbot
+    
+    if user_input.lower()=='quit':
+        print('Quitting...')
+        break
+    
+    # Seeing how many tokens used
+    
+    
+    
+
+    
+
+
+

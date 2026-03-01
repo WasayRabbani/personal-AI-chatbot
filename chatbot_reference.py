@@ -46,12 +46,12 @@ while True:
         continue
 
     # --- COMMANDS ---
-
+    
     if user_input.lower() == "quit":
         print(f"\nSession over. Total tokens used: {total_tokens}")
         print("Khuda Hafiz!")
         break
-
+        c
     if user_input.lower() == "history":
         print("\n--- CONVERSATION HISTORY ---")
         for message in chat.get_history():
@@ -76,3 +76,5 @@ while True:
     # Print reply
     print(f"\nZia: {response.text}")
     print(f"[tokens: {tokens_used} | session total: {total_tokens}]\n")
+    
+    
