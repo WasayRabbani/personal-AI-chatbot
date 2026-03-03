@@ -18,9 +18,10 @@ chat=client.chats.create(
 )
 
 # Making Chatbot
+total_token=0
 
 print('-'*45)
-print('Basic Level Chatbot')
+print(f'Basic Level Chatbot\nQ to quit.\nT for token')
 print('-'*45)
 
 while True:
@@ -31,11 +32,36 @@ while True:
     
     # Quit option Chatbot
     
-    if user_input.lower()=='quit':
+    if user_input.lower()=='q':
         print('Quitting...')
         break
     
-    # Seeing how many tokens used
+    
+    # Checking total number of token used in session.
+    
+    if user_input.lower()=='t':
+        print(f'Total Token used:{total_token}')
+        
+        
+    # Checking history of chat     
+        
+        
+        
+    # Sending user message to gemini and getting back its reply
+    response=chat.send_message(user_input)
+    print(response.text)
+    
+    
+    # here response is the variable in which it stores what gemini sends back everything. like text, meta data, usage info and possibly satefy info.add()
+    
+    
+    # usage_meta_data is property that contains info about token usage 
+    token_used=response.usage_metadata.total_token_count
+    total_token+=token_used
+    
+    
+    # With every chat it prints total token used and used by this chat 
+    print(f'Token used in chat {token_used}')
     
     
     
