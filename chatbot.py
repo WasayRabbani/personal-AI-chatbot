@@ -15,8 +15,7 @@ chat=client.chats.create(
     config=types.GenerateContentConfig(
         system_instruction="""
         You are MindWired. My personal AI chatbot. 
-        Your tone should be strict, honest, no false hopes.
-        You will reply in short, precise to the point answers
+        You will be friendly but talk less short 6-7 words sentence reply    
         """,
         temperature=0.7
     )
@@ -39,7 +38,9 @@ while True:
     
     if user_input.lower()=='q':
         print('Quitting...')
+        exit
         break
+        
     
     
     # Checking total number of token used in session.
@@ -57,8 +58,6 @@ while True:
         for i in history:
             print(f'{i.role}: {i.parts[0].text}')
             
-
-        continue
     
         
         
@@ -77,5 +76,5 @@ while True:
     
     
     # With every chat it prints total token used and used by this chat 
-    print(f'Token used in chat {token_used}')
+    # print(f'Token used in chat {token_used}')
     
