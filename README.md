@@ -89,7 +89,7 @@ You:
 
 - **Never share your API key** with anyone
 - **Never upload your `.env` file** to GitHub
-- Add `.env` and `history.json` to your `.gitignore`
+- Add `.env` to your `.gitignore`
 
 ```
 # .gitignore
