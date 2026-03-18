@@ -1,47 +1,47 @@
-# MindWired — AI Chatbot with Memory
+# 🤖 AI Chatbot with Conversation History
 
-A command-line chatbot built with Google Gemini API.  
-Remembers full conversation history, supports Urdu & English, and tracks token usage.
-
----
-
-## What This Project Does
-
-- Maintains conversation memory throughout the session
-- Custom AI personality via system instructions
-- Replies in Urdu or English based on user input
-- Tracks tokens used per message and total session tokens
-- Commands: `history` | `tokens` | `quit`
+A personal AI chatbot built with Python and Google Gemini that remembers your conversation across sessions using a local JSON file.
 
 ---
 
-## Tech Stack
+## 📌 Features
+
+- 💬 Chat with Gemini AI in your terminal
+- 🧠 Conversation history saved locally and loaded on every session
+- 📜 View full chat history anytime with `H`
+- 🔢 Track token usage with `T`
+- 🔒 Secure API key management using `.env` file
+
+---
+
+## 🛠️ Tech Stack
 
 - Python
-- Google Gemini API (`gemini-2.5-flash`)
-- `google-genai` SDK
+- [Google GenAI SDK](https://pypi.org/project/google-genai/) (`google-genai`)
 - `python-dotenv`
+- JSON (for local history storage)
 
 ---
 
-## How to Run
+## ⚙️ Setup & Installation
 
-**1. Clone the repo**
+**1. Clone the repository**
 ```bash
-git clone https://github.com/WasayRabbani/LLM-Basics-Stage-1.git
-cd llm-basics
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 ```
 
 **2. Install dependencies**
 ```bash
-pip install -r requirements.txt
+pip install google-genai python-dotenv
 ```
 
-**3. Create `.env` file**
+**3. Create a `.env` file in the root directory**
 ```
 GEMINI_API_KEY=your_api_key_here
 ```
-Get your free API key from: https://aistudio.google.com
+
+> Get your free API key from [Google AI Studio](https://aistudio.google.com/)
 
 **4. Run the chatbot**
 ```bash
@@ -50,23 +50,56 @@ python chatbot.py
 
 ---
 
-## What I Learned
+## 💻 Usage
 
-- How LLMs are stateless — memory must be managed manually
-- How `chat.send_message()` sends full conversation history every time
-- How system instructions control AI personality and behavior
-- How to track token usage for cost estimation
-- How to structure a Python project with `.env` for secure API key storage
+Once running, you'll see:
+
+```
+---------------------------------------------
+Welcome to Chatbot
+Press Q to quit
+H for history
+T for token
+---------------------------------------------
+You: 
+```
+
+| Command | Action |
+|--------|--------|
+| Any text | Send a message to the AI |
+| `H` | View full conversation history |
+| `T` | Check token usage |
+| `Q` | Quit the chatbot |
 
 ---
 
-## Project Status
+## 📁 Project Structure
 
-Work in Progress — Stage 1 of Gen AI Roadmap
+```
+├── chatbot.py        # Main chatbot script
+├── history.json      # Auto-generated conversation history
+├── .env              # Your API key (never share or upload)
+├── .gitignore        # Excludes .env and history.json
+└── README.md         # Project documentation
+```
 
 ---
 
-## Author
+## 🔐 Important
 
-**Wasay Rabbani**  
-Learning Gen AI Development | Building in Public
+- **Never share your API key** with anyone
+- **Never upload your `.env` file** to GitHub
+- Add `.env` and `history.json` to your `.gitignore`
+
+```
+# .gitignore
+.env
+history.json
+```
+
+---
+
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
